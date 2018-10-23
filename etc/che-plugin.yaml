@@ -1,0 +1,32 @@
+version: 1.0.0
+type: Che Editor
+name: eclipse-dirigible
+id: org.eclipse.che.editor.dirigible
+title: Eclipse Dirigible as Editor for Eclipse Che
+description: Eclipse Dirigible as Editor for Eclipse Che
+icon: http://download.eclipse.org/dirigible/dirigible.png
+endpoints:
+ -  name: "dirigible"
+    public: true
+    targetPort: 8080
+    attributes:
+      protocol: http
+      type: ide
+containers:
+ - name: eclipse-dirigible
+   image: dirigiblelabs/dirigible-anonymous
+   env:
+       - name: DIRIGIBLE_REPOSITORY_LOCAL_ROOT_FOLDER
+         value: /dirigible/repository
+       - name: DIRIGIBLE_REPOSITORY_LOCAL_ROOT_FOLDER_IS_ABSOLUTE
+         value: true
+       - name: DIRIGIBLE_CMS_INTERNAL_ROOT_FOLDER
+         value: /dirigible/cms
+       - name: DIRIGIBLE_CMS_INTERNAL_ROOT_FOLDER_IS_ABSOLUTE
+         value: true
+   volumes:
+       - mountPath: "/dirigible"
+         name: dirigible
+   ports:
+       - exposedPort: 8080
+   memory-limit: "512M"
