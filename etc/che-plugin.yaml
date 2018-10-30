@@ -17,13 +17,23 @@ containers:
    image: dirigiblelabs/dirigible-anonymous
    env:
        - name: DIRIGIBLE_REPOSITORY_LOCAL_ROOT_FOLDER
-         value: /projects/repository
+         value: /projects/dirigible/repository
        - name: DIRIGIBLE_REPOSITORY_LOCAL_ROOT_FOLDER_IS_ABSOLUTE
          value: true
+       - name: DIRIGIBLE_REPOSITORY_SEARCH_ROOT_FOLDER
+         value: /projects/dirigible/repository
+       - name: DIRIGIBLE_REPOSITORY_SEARCH_ROOT_FOLDER_IS_ABSOLUTE
+         value: true
        - name: DIRIGIBLE_CMS_INTERNAL_ROOT_FOLDER
-         value: /projects/cms
+         value: /projects/dirigible/cms
        - name: DIRIGIBLE_CMS_INTERNAL_ROOT_FOLDER_IS_ABSOLUTE
          value: true
+       - name: DIRIGIBLE_DATABASE_H2_ROOT_FOLDER_DEFAULT
+         value: /projects/dirigible/h2
+       - name: DIRIGIBLE_DATABASE_H2_URL
+         value: jdbc:h2:/projects/dirigible/h2
+       - name: DIRIGIBLE_OPERATIONS_LOGS_ROOT_FOLDER_DEFAULT
+         value: /usr/local/tomcat/logs
    volumes:
        - mountPath: "/projects"
          name: projects
