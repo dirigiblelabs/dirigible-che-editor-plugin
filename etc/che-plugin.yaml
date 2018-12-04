@@ -16,6 +16,8 @@ containers:
  - name: eclipse-dirigible
    image: dirigiblelabs/dirigible-openshift
    env:
+       - name DIRIGIBLE_DATABASE_PROVIDER
+         value: "local"
        - name: DIRIGIBLE_REPOSITORY_LOCAL_ROOT_FOLDER
          value: /projects/dirigible/repository
        - name: DIRIGIBLE_REPOSITORY_LOCAL_ROOT_FOLDER_IS_ABSOLUTE
