@@ -14,7 +14,7 @@ endpoints:
       type: ide
 containers:
  - name: eclipse-dirigible
-   image: dirigiblelabs/dirigible-anonymous
+   image: dirigiblelabs/dirigible-openshift
    env:
        - name: DIRIGIBLE_REPOSITORY_LOCAL_ROOT_FOLDER
          value: /projects/dirigible/repository
@@ -39,4 +39,4 @@ containers:
          name: projects
    ports:
        - exposedPort: 8080
-   memory-limit: "512M"
+   memory-limit: "1024M"
