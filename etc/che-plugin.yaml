@@ -42,3 +42,4 @@ containers:
    ports:
        - exposedPort: 8080
    memory-limit: "1024M"
+   memoryLimit: "1024M"
